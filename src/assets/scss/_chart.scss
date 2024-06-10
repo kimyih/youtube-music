@@ -1,0 +1,85 @@
+.music-chart {
+    padding: 0rem 2rem 2rem 2rem;
+
+    h2 {
+        font-weight: 900;
+        color: #000000;
+        border-radius: 30px;
+    }
+
+    >.title {
+        text-align: center;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+
+
+    >.list {
+        ul {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            li {
+                display: flex;
+                align-items: center;
+                margin: 4px 0;
+                padding: 5px 20px;
+                border-radius: 50px;
+                cursor: pointer;
+                font-family: var(--fontJ);
+                font-weight: 300;
+
+                .rank {
+                    flex: 0 0 50px;
+                    color: var(--black700);
+                }
+
+                .img {
+                    width: 50px;
+                    height: 50px;
+                    display: inline-block;
+                    margin-right: 20px;
+                    background-size: cover;
+                    border-radius: 5px;
+
+                    img {
+                        width: 100%;
+                        border-radius: 10px;
+                    }
+                }
+
+                .title {
+                    flex: 1;
+                }
+
+                .album {
+                    margin-left: auto;
+                    color: var(--black700);
+                    font-size: 14px;
+                }
+
+                &:hover {
+                    background-color: var(--white);
+
+                    .album {
+                        color: var(--black100);
+                    }
+                }
+            }
+        }
+    }
+
+    .search-results {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        z-index: 1000;
+        width: 100%;
+        height: 400px;
+        background-color: #ccc;
+    }
+}

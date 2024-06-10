@@ -1,0 +1,44 @@
+#header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 260px;
+    height: 100vh;
+    background-color: var(--white);
+    box-shadow: 0 0 10px var(--white200);
+
+    h1 {
+        font-size: 30px;
+        font-weight: 900;
+        text-align: center;
+        padding: 30px;
+    }
+
+    h2 {
+        padding: 10px;
+        margin-left: 20px;
+        font-size: 14px;
+        color: var(--white400);
+    }
+
+    ul {
+        text-align: center;
+
+        li {
+            padding: 10px;
+            display: flex;
+            margin-left: 10px;
+
+        }
+
+        img {
+            width: 25px;
+            height: 25px;
+            margin-right: 10px;
+        }
+
+    }
+
+
+
+}
