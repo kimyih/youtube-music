@@ -14,29 +14,33 @@ import Recent from './pages/Recent'
 import Favorites from './pages/Favorites'
 import Mymusic from './pages/Mymusic'
 
+import MusicPlayerProvider from './context/MusicPlayerProvider'
+
 
 
 const App = () => {
   return (
+    <MusicPlayerProvider>
+      <BrowserRouter>
+        <Header />
+        <Main>
+          <Search />
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/MelonPage' element={<MelonPage />} />
+            <Route path='/BugsPage' element={<BugsPage />} />
+            <Route path='/ApplePage' element={<ApplePage />} />
+            <Route path='/GeniePage' element={<GeniePage />} />
+            <Route path='/BillPage' element={<BillPage />} />
+            <Route path='/Recent' element={<Recent />} />
+            <Route path='/favorites' element={<Favorites />} />
+            <Route path='/mymusic' element={<Mymusic />} />
+          </Routes>
+        </Main>
+        <Aside />
+      </BrowserRouter>
+    </MusicPlayerProvider>
 
-    <BrowserRouter>
-      <Header />
-      <Main>
-        <Search />
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/MelonPage' element={<MelonPage />} />
-          <Route path='/BugsPage' element={<BugsPage />} />
-          <Route path='/ApplePage' element={<ApplePage />} />
-          <Route path='/GeniePage' element={<GeniePage />} />
-          <Route path='/BillPage' element={<BillPage />} />
-          <Route path='/Recent' element={<Recent />} />
-          <Route path='/favorites' element={<Favorites />} />
-          <Route path='/mymusic' element={<Mymusic />} />
-        </Routes>
-      </Main>
-      <Aside />
-    </BrowserRouter>
 
   )
 }

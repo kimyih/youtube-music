@@ -1,3 +1,14 @@
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
 #aside {
     position: fixed;
     right: 0;
@@ -6,10 +17,13 @@
     height: 100vh;
     background-color: var(--white);
     box-shadow: 0 0 10px var(--white200);
+    display: flex;
+    flex-direction: column;
 
     .play-now {
         padding: 2rem;
         border-bottom: 1px solid var(--white200);
+        flex: 0 0 auto;
 
         h2 {
             text-align: center;
@@ -28,7 +42,7 @@
             .img {
                 display: block;
                 width: 100%;
-                aspect-ratio: 16/ 9;
+                aspect-ratio: 16 / 9;
                 overflow: hidden;
                 background-color: var(--white200);
                 border-radius: 10px;
@@ -57,7 +71,8 @@
             .artist {
                 text-align: center;
                 color: var(--black700);
-
+                display: flex;
+                justify-content: center;
             }
         }
 
@@ -126,12 +141,51 @@
         }
 
         .volume {
-            display: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 10px;
+
+            input[type='range'] {
+                width: 70%;
+                -webkit-appearance: none;
+                appearance: none;
+                background-color: #ddd;
+                height: 5px;
+                border-radius: 5px;
+                outline: none;
+
+                &::-webkit-slider-thumb {
+                    -webkit-appearance: none;
+                    appearance: none;
+                    width: 15px;
+                    height: 15px;
+                    border-radius: 50%;
+                    background: var(--pointColor);
+                    cursor: pointer;
+                }
+
+                &::-moz-range-thumb {
+                    width: 15px;
+                    height: 15px;
+                    border-radius: 50%;
+                    background: var(--pointColor);
+                    cursor: pointer;
+                }
+            }
+
+            .volume-value {
+                margin-left: 10px;
+                font-size: 14px;
+                color: var(--black700);
+            }
         }
     }
 
     .play-list {
         padding: 2rem;
+        overflow-y: auto;
+        flex: 1 1 auto; // 플레이리스트가 남은 공간을 채우도록 설정
 
         h3 {
             text-align: center;
@@ -169,7 +223,6 @@
 
                 .title {
                     width: calc(100% - 80px);
-                    height: 45px;
                     font-family: var(--fontJ);
                     font-weight: 300;
                     overflow: hidden;
@@ -183,12 +236,14 @@
                     background-color: var(--pointBg);
                 }
 
-                &.current {
-                    background-color: var(--pointBg);
-
+                &.current-track,
+                &.active {
+                    background-color: #7a7a7a4e; // 원하는 색상으로 변경
+                    color: var(--white); // 텍스트 색상 변경
 
                     .img {
                         position: relative;
+                        animation: rotate 3s linear infinite;
 
                         &::before {
                             content: '';
@@ -205,11 +260,12 @@
                             content: '';
                             width: 20px;
                             height: 20px;
-                            background-image: url("data:image/svg+xml,%0A%3Csvg width='67' height='76' viewBox='0 0 67 76' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M64.5 33.6699C67.8333 35.5944 67.8333 40.4056 64.5 42.3301L7.5 75.2391C4.16666 77.1636 -3.70489e-06 74.758 -3.53664e-06 70.909L-6.5965e-07 5.09103C-4.91405e-07 1.24203 4.16667 -1.16359 7.5 0.760906L64.5 33.6699Z' fill='url(%23paint0_linear_891_99)'/%3E%3Cdefs%3E%3ClinearGradient id='paint0_linear_891_99' x1='-4.5' y1='38' x2='68.5' y2='38' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%235779FF'/%3E%3Cstop offset='1' stop-color='%237E56FF'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E%0A");
+                            background-color: #fff;
+                            border-radius: 30px;
                             background-size: contain;
                             background-repeat: no-repeat;
                             position: absolute;
-                            left: 55%;
+                            left: 50%;
                             top: 50%;
                             z-index: 100;
                             transform: translate(-50%, -50%);

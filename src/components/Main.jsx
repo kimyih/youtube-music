@@ -1,10 +1,10 @@
 import React from 'react'
 
-const Main = () => {
+const Main = (prop) => {
     return (
-        <div>
-            Main
-        </div>
+        <main id='main'>
+            {prop.children}
+        </main>
     )
 }
 
