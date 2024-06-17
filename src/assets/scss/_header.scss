@@ -27,13 +27,59 @@
         li {
             padding: 10px;
             display: flex;
+            align-items: center;
             margin-left: 10px;
-    
-            button {
-                background-color: #ffb7b7;
-                border-radius: 10px;
+            justify-content: space-between;
+
+            .input-container {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                
+                input {
+                    flex: 1;
+                    padding: 0.5rem;
+                    margin-right: 0.5rem;
+                    border: 1px solid #ddd;
+                    border-radius: 4px;
+                }
+
+                button {
+                    padding: 0.5rem 1rem;
+                    background-color: #007bff;
+                    color: white;
+                    border: none;
+                    border-radius: 10px;
+                    cursor: pointer;
+
+                    &:hover {
+                        background-color: #0056b3;
+                    }
+                }
             }
 
+            .button-container {
+                display: flex;
+                align-items: center;
+
+                button {
+                    margin-left: 0.5rem;
+                    padding: 0.2rem 0.5rem;
+                    background-color: #007bff;
+                    color: white;
+                    border: none;
+                    border-radius: 10px;
+                    cursor: pointer;
+
+                    &:hover {
+                        background-color: #0056b3;
+                    }
+                }
+            }
+
+            .icon2 {
+                margin-right: 0.5rem;
+            }
         }
 
         img {
@@ -42,8 +88,17 @@
             margin-right: 10px;
         }
 
+        .add-button {
+            padding: 0.5rem 1rem;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+
+            &:hover {
+                background-color: #0056b3;
+            }
+        }
     }
-
-
-
 }
